@@ -55,7 +55,7 @@ module.exports = function(app) {
       // synchronous
       sendImageInResponse(filePath, res, callback);
     }
-  }
+  };
 
   var processImageUsingRasterizer = function(rasterizerOptions, filePath, res, url, callback) {
     if (url) {
@@ -72,7 +72,7 @@ module.exports = function(app) {
         sendImageInResponse(filePath, res, callback);
       });
     }
-  }
+  };
 
   var callRasterizer = function(rasterizerOptions, callback) {
     request.get(rasterizerOptions, function(error, response, body) {
@@ -83,7 +83,7 @@ module.exports = function(app) {
       }
       callback(null);
     });
-  }
+  };
 
   var postImageToUrl = function(imagePath, url, callback) {
     console.log('Streaming image to %s', url);
@@ -99,7 +99,7 @@ module.exports = function(app) {
       if (err) console.log('Error while streaming screenshot: %s', err);
       callback(err);
     }));
-  }
+  };
 
   var sendImageInResponse = function(imagePath, res, callback) {
     console.log('Sending image in response');
@@ -107,6 +107,6 @@ module.exports = function(app) {
       fileCleanerService.addFile(imagePath);
       callback(err);
     });
-  }
+  };
 
 };
