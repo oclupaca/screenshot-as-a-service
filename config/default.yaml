@@ -7,3 +7,7 @@ cache:
   lifetime: 60000      # one minute, set to 0 for no cache
 server:
   port: 3000           # main service port
+bucketOne:
+  bucket: 'Your bucket name'
+  accessKey: 'Your local S3 key (AWS_KEY)'
+  secretKey: 'Your local secret S3 key (AWS_SECRET_KEY)'
