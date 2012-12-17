@@ -11,3 +11,4 @@ bucketOne:
   bucket: 'Your bucket name'
   accessKey: 'Your local S3 key (AWS_KEY)'
   secretKey: 'Your local secret S3 key (AWS_SECRET_KEY)'
+
