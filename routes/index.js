@@ -36,7 +36,8 @@ module.exports = function(app) {
     options.headers.filePath = join(rasterizerService.getPath(), filename);
     options.headers.callbackUrl = options.headers.callback ? utils.url(options.headers.callback) : false;
 
-    processImage(res, options, function(err) { if (err) next(err); });
+    processImage(res, options,
+      function(err) { if (err) next(err); });
 
   });
 
@@ -97,8 +98,9 @@ module.exports = function(app) {
 
   var postImagetoS3 = function(options, res, callback){
     console.log('Uploading image to S3');
-    s3Service.send(options, res, function(err) {
+    s3Service.send(options, res, function(err, s3Obj) {
       fileCleanerService.addFile(options.headers.filePath);
+      res.send(s3Obj);
       callback(err);
     });
   };
